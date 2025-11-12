@@ -6,6 +6,14 @@
 # `jekyll serve -l -H localhost`. If you change this file, please restart the 
 # server process.
 
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+  - jekyll-redirect-from
+  
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
