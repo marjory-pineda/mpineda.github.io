@@ -45,8 +45,10 @@
 /* === Custom Overrides for Marjory Pineda personal site === */
 /* ========================================================= */
 
-/* 1️⃣ White background across entire site */
+/* 1️⃣ Force background to be pure white everywhere */
+html,
 body,
+.page,
 .page__content,
 .page__footer,
 .masthead,
@@ -54,23 +56,21 @@ body,
   background-color: #ffffff !important;
 }
 
-/* 2️⃣ Circular profile image and proper sizing */
+/* 2️⃣ Circular profile image */
 .author__avatar img {
   border-radius: 50% !important;
   width: 180px !important;
   height: 180px !important;
   object-fit: cover !important;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* 3️⃣ Center sidebar text and content for balance */
+/* 3️⃣ Keep sidebar left-aligned (default layout) */
 .sidebar {
-  text-align: center;
+  text-align: left !important;
 }
 
-/* 4️⃣ Optional: tighten sidebar width slightly on large screens */
+/* 4️⃣ Optional: Slightly reduce sidebar width for balance */
 @media (min-width: 1200px) {
   .sidebar {
     max-width: 260px;
