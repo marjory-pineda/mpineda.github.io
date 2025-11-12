@@ -1,121 +1,69 @@
----
----
-
-/*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
- */
-
-@import
-    "vendor/breakpoint/breakpoint",
-
-    "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
-
-    "include/mixins",
-    "vendor/susy/susy",
-
-    "layout/reset",
-    "layout/base",
-
-    "include/utilities",
-    "layout/tables",
-    "layout/buttons",
-    "layout/notices",
-    "layout/masthead",
-    "layout/navigation",
-    "layout/footer",
-    "syntax",
-
-    "layout/forms",
-
-    "layout/page",
-    "layout/archive",
-    "layout/sidebar",
-    "layout/json_cv",
-
-    "vendor/font-awesome/fontawesome",
-    "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands";
-
 /* ========================================================= */
-/* === Custom Overrides for Marjory Pineda personal site === */
+/* === Accent Styling for Navigation and Links (Orange) ==== */
 /* ========================================================= */
 
-/* 1️⃣ Force fully white background on all layout layers */
-html,
-body,
-.site,
-.page,
-.page__inner-wrap,
-.page__content,
-.page__footer,
-.wrapper,
-.main,
-.layout__default,
-.site__content,
-.sidebar,
-.masthead,
-header,
-footer,
-section,
-article,
-aside {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-}
+/* Accent color variable */
+$accent-color: #E87722;
 
-/* Ensure text contrast against white background */
-body {
+/* 1️⃣ Navbar active/hover link styling */
+.masthead__menu-item a {
+  position: relative;
+  padding-bottom: 4px;
   color: #222222 !important;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
-/* 2️⃣ Apply clean modern font (Avenir Next stack) */
-body,
-h1, h2, h3, h4, h5, h6,
-a,
-p,
-li,
-blockquote,
-.sidebar,
-.masthead,
-.page__content,
-footer {
-  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  color: #222 !important;
-  line-height: 1.6;
+/* Highlight orange underline when active */
+.masthead__menu-item--active a,
+.masthead__menu-item a:hover {
+  color: $accent-color !important;
 }
 
-/* 3️⃣ Circular profile image */
-.author__avatar img {
-  border-radius: 50% !important;
-  width: 180px !important;
-  height: 180px !important;
-  object-fit: cover !important;
-  display: block;
+/* Orange underline animation */
+.masthead__menu-item--active a::after,
+.masthead__menu-item a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: $accent-color;
+  transition: width 0.3s ease-in-out;
 }
 
-/* 4️⃣ Left-align sidebar content */
-.sidebar {
-  text-align: left !important;
+/* Default (no underline when inactive) */
+.masthead__menu-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: transparent;
 }
 
-/* 5️⃣ Slightly widen content area for a balanced layout */
-@media (min-width: 1200px) {
-  .page__content {
-    max-width: 850px;
-  }
+/* 2️⃣ Accent color for links and hover */
+a {
+  color: $accent-color !important;
+}
+a:hover {
+  color: darken($accent-color, 10%) !important;
+  text-decoration: underline;
 }
 
-/* 6️⃣ Optional: subtle separation between sidebar and main content */
-@media (min-width: 1000px) {
-  .sidebar {
-    border-right: 1px solid #eee;
-  }
-  .page__content {
-    padding-left: 2rem;
-  }
+/* 3️⃣ Sidebar icons accent hover */
+.sidebar a:hover {
+  color: $accent-color !important;
+}
+
+/* 4️⃣ Accent bullet points or small highlights */
+ul li::marker {
+  color: $accent-color;
+}
+
+/* 5️⃣ Optional: orange border under masthead for visual separation */
+.masthead {
+  border-bottom: 3px solid $accent-color;
 }
