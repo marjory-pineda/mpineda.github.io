@@ -73,21 +73,21 @@ author_profile: true
 <div class="research-grid">
 
   <div class="research-card">
-    <img src="pr_makerspace_.jpeg" alt="people sitting at tables doing braille activities">
+    <img src="/pr_makerspace_.jpeg" alt="people sitting at tables doing braille activities">
     <h3>Envisioning the Creation of A Culturally-Responsive and Accessible Makerspace</h3>
     <p>Exploring how communities in Puerto Rico imagine a makerspace that is accessible and reflects their culture.</p>
     <a href="#" class="button">Read More</a>
   </div>
 
   <div class="research-card">
-    <img src="blv_project" alt="A laptop, a MakeyMakey kit, and conductive objects on a table">
+    <img src="/blv_project" alt="A laptop, a MakeyMakey kit, and conductive objects on a table">
     <h3>Community-engaged Partnership with Blind and Low-Vision Youth</h3>
     <p>Developing long-term relationships with a local organization to expose BLV youth to information and opportunities.</p>
     <a href="#" class="button">Read More</a>
   </div>
 
   <div class="research-card">
-    <img src="assembly_line_project.jpeg">
+    <img src="/assembly_line_project.jpeg">
     <h3>Investigating the Work Practices of Assembly Line Workers with Visual Impairments</h3>
     <p>Studying experiences and challenges of assembly line garment workers, along with strategies and workarounds which have been developed to support workflow.</p>
     <a href="#" class="button">Read More</a>
