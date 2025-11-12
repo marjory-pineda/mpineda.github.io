@@ -20,8 +20,12 @@ author_profile: true
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  flex: 1 1 calc(33.333% - 32px); /* fill full width accounting for gap */
-  max-width: calc(33.333% - 32px);
+  
+  /* === THIS IS THE FIX === */
+  /* We remove the complex calc() and max-width */
+  /* 'flex: 1;' tells all cards to grow equally to fill the space */
+  flex: 1;
+  
   padding: 22px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
@@ -97,21 +101,21 @@ author_profile: true
   background-color: #cf6b1e;
 }
 
-/* Responsive behavior */
+/* Responsive behavior - These rules will correctly override the 'flex: 1;' */
 @media (max-width: 1250px) {
   .research-grid {
     flex-wrap: wrap;
     justify-content: center;
   }
   .research-card {
-    flex: 1 1 45%;
+    flex: 1 1 45%; /* This overrides 'flex: 1' */
     max-width: 45%;
   }
 }
 
 @media (max-width: 800px) {
   .research-card {
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* This overrides 'flex: 1' */
     max-width: 100%;
   }
 }
