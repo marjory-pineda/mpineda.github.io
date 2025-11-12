@@ -8,8 +8,9 @@ author_profile: true
 /* ==== Research Page Custom Styling ==== */
 .research-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
   gap: 24px;
   margin-top: 20px;
 }
@@ -18,15 +19,13 @@ author_profile: true
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  flex: 1 1 30%; /* evenly distributes three per row */
-  min-width: 340px;
-  max-width: 390px;
+  width: 360px; /* consistent fixed width */
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 520px; /* equal height baseline */
   overflow: hidden;
   position: relative;
 }
@@ -46,7 +45,7 @@ author_profile: true
 
 .research-card h3 {
   margin-top: 0;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   border-left: 4px solid #E87722;
   padding-left: 10px;
   font-weight: 700;
@@ -57,12 +56,16 @@ author_profile: true
   font-size: 0.95rem;
   color: #444;
   line-height: 1.45;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.research-card.expanded {
+  height: auto; /* expand card height when description expands */
 }
 
 .research-card.expanded p {
@@ -70,6 +73,7 @@ author_profile: true
   overflow: visible;
 }
 
+/* 🔸 Orange "Show more" link */
 .show-more {
   background: none;
   border: none;
@@ -88,6 +92,7 @@ author_profile: true
   text-decoration: underline;
 }
 
+/* 🔸 Read More button */
 .research-card .button {
   display: inline-block;
   margin-top: auto;
@@ -106,15 +111,11 @@ author_profile: true
   background-color: #cf6b1e;
 }
 
-@media (max-width: 1000px) {
-  .research-card {
-    flex: 1 1 45%;
-  }
-}
-
-@media (max-width: 700px) {
-  .research-card {
-    flex: 1 1 100%;
+/* Responsive layout: stack on smaller screens */
+@media (max-width: 1200px) {
+  .research-grid {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>
@@ -134,7 +135,7 @@ author_profile: true
   <div class="research-card">
     <img src="/blv_project.jpeg" alt="A laptop, a MakeyMakey kit, and conductive objects on a table">
     <h3>Community-engaged Partnership with Blind and Low-Vision Youth</h3>
-    <p>Developing long-term relationships with a local organization to for BLV youth to learn about interactive technology and STEM.</p>
+    <p>Developing long-term relationships with a local organization to expose BLV youth to information and opportunities in technology and STEM.</p>
     <button class="show-more" onclick="toggleDescription(this)">Show more</button>
     <a href="#" class="button">Read More</a>
   </div>
@@ -156,14 +157,15 @@ function toggleDescription(button) {
   button.textContent = isExpanded ? "Show less" : "Show more";
 }
 
-// Show "Show more" only if text actually overflows
+// Ensure "Show more" appears if text exceeds 4 lines
 window.addEventListener("load", () => {
   document.querySelectorAll(".research-card").forEach(card => {
     const p = card.querySelector("p");
     const showMoreBtn = card.querySelector(".show-more");
-    const maxHeight = parseFloat(window.getComputedStyle(p).lineHeight) * 4; // 4 lines
+    const lineHeight = parseFloat(window.getComputedStyle(p).lineHeight);
+    const visibleHeight = lineHeight * 4;
 
-    if (p.scrollHeight > maxHeight + 5) {
+    if (p.scrollHeight > visibleHeight + 4) {
       showMoreBtn.style.display = "inline";
     }
   });
