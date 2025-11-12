@@ -2,10 +2,13 @@
 
 {% include analytics.html %}
 
-<!-- Force remove the dark mode toggle icon -->
+<!-- Force remove the dark mode toggle icon (fallback for early load) -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const darkToggle = document.querySelector(".js-toggle-dark-mode, button[aria-label='toggle color scheme']");
   if (darkToggle) darkToggle.remove();
 });
 </script>
+
+<!-- Aggressive remover to handle delayed JS injection -->
+<script src="{{ '/assets/js/remove-dark-toggle.js' | relative_url }}"></script>
