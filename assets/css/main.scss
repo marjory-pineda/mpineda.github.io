@@ -214,10 +214,16 @@ h2, h3 {
   padding-left: 10px;
 }
 
-/* === Remove dark mode toggle icon === */
-.masthead__menu-item svg[aria-label="toggle color scheme"],
-.js-toggle-dark-mode,
-.color-scheme-toggle {
+/* === Remove the dark mode / theme toggle icon completely === */
+button.js-toggle-dark-mode,
+button[data-md-color-scheme-toggle],
+button[aria-label="toggle color scheme"],
+.masthead__menu-item > .color-scheme-toggle,
+.masthead__menu-item > svg[aria-label="toggle color scheme"],
+.masthead__menu-item > button {
   display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
+
 
