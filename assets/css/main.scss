@@ -213,3 +213,11 @@ h2, h3 {
   border-left: 4px solid $accent-color;
   padding-left: 10px;
 }
+
+/* === Remove dark mode toggle icon === */
+.masthead__menu-item svg[aria-label="toggle color scheme"],
+.js-toggle-dark-mode,
+.color-scheme-toggle {
+  display: none !important;
+}
+
