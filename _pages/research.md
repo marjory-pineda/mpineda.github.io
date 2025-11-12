@@ -8,19 +8,19 @@ author_profile: true
 /* ==== Research Page Custom Styling ==== */
 .research-grid {
   display: flex;
-  flex-wrap: nowrap; /* Keep them on one row */
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 24px;
   margin-top: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
 }
 
 .research-card {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  width: 320px;
+  flex: 1 1 30%; /* evenly distributes three per row */
+  min-width: 340px;
+  max-width: 390px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: all 0.2s ease-in-out;
@@ -46,7 +46,7 @@ author_profile: true
 
 .research-card h3 {
   margin-top: 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   border-left: 4px solid #E87722;
   padding-left: 10px;
   font-weight: 700;
@@ -62,7 +62,7 @@ author_profile: true
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: max-height 0.3s ease;
 }
 
 .research-card.expanded p {
@@ -70,7 +70,6 @@ author_profile: true
   overflow: visible;
 }
 
-/* 🔸 Updated Show More Button (Orange Text) */
 .show-more {
   background: none;
   border: none;
@@ -81,7 +80,7 @@ author_profile: true
   text-align: left;
   display: none;
   font-weight: 600;
-  transition: color 0.2s ease;
+  margin-top: 4px;
 }
 
 .show-more:hover {
@@ -89,7 +88,6 @@ author_profile: true
   text-decoration: underline;
 }
 
-/* 🔸 Read More Button (orange background) */
 .research-card .button {
   display: inline-block;
   margin-top: auto;
@@ -108,10 +106,15 @@ author_profile: true
   background-color: #cf6b1e;
 }
 
-@media (max-width: 960px) {
-  .research-grid {
-    flex-wrap: wrap;
-    justify-content: center;
+@media (max-width: 1000px) {
+  .research-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .research-card {
+    flex: 1 1 100%;
   }
 }
 </style>
@@ -123,7 +126,7 @@ author_profile: true
   <div class="research-card">
     <img src="/pr_makerspace_.jpeg" alt="people sitting at tables doing braille activities">
     <h3>Envisioning the Creation of A Culturally-Responsive and Accessible Makerspace</h3>
-    <p>Exploring how communities in Puerto Rico imagine a makerspace that is accessible and reflects their culture. The project highlights participatory design methods that empower participants to shape the future of inclusive making spaces through co-design workshops, local engagement, and storytelling-based prototyping.</p>
+    <p>Exploring how communities in Puerto Rico imagine a makerspace that is accessible and reflects their culture.</p>
     <button class="show-more" onclick="toggleDescription(this)">Show more</button>
     <a href="#" class="button">Read More</a>
   </div>
@@ -131,7 +134,7 @@ author_profile: true
   <div class="research-card">
     <img src="/blv_project.jpeg" alt="A laptop, a MakeyMakey kit, and conductive objects on a table">
     <h3>Community-engaged Partnership with Blind and Low-Vision Youth</h3>
-    <p>Developing long-term relationships with a local organization to expose BLV youth to information and opportunities in technology and STEM. This work uses inclusive learning practices, hands-on workshops, and adaptive materials to support meaningful engagement and creative confidence among youth participants.</p>
+    <p>Developing long-term relationships with a local organization to for BLV youth to learn about interactive technology and STEM.</p>
     <button class="show-more" onclick="toggleDescription(this)">Show more</button>
     <a href="#" class="button">Read More</a>
   </div>
@@ -139,7 +142,7 @@ author_profile: true
   <div class="research-card">
     <img src="/assembly_line_project.jpeg" alt="assembly line work setting">
     <h3>Investigating the Work Practices of Assembly Line Workers with Visual Impairments</h3>
-    <p>Studying experiences and challenges of assembly line garment workers, along with strategies and workarounds developed to support workflow and independence. The study centers workers’ voices and identifies design opportunities for more inclusive assistive technologies in manufacturing environments.</p>
+    <p>Studying experiences and challenges of assembly line garment workers, along with strategies and workarounds developed to support workflow and independence.</p>
     <button class="show-more" onclick="toggleDescription(this)">Show more</button>
     <a href="#" class="button">Read More</a>
   </div>
@@ -153,13 +156,14 @@ function toggleDescription(button) {
   button.textContent = isExpanded ? "Show less" : "Show more";
 }
 
-// Show "Show more" only if text exceeds 4 lines
+// Show "Show more" only if text actually overflows
 window.addEventListener("load", () => {
   document.querySelectorAll(".research-card").forEach(card => {
     const p = card.querySelector("p");
     const showMoreBtn = card.querySelector(".show-more");
+    const maxHeight = parseFloat(window.getComputedStyle(p).lineHeight) * 4; // 4 lines
 
-    if (p.scrollHeight > p.clientHeight + 10) {
+    if (p.scrollHeight > maxHeight + 5) {
       showMoreBtn.style.display = "inline";
     }
   });
