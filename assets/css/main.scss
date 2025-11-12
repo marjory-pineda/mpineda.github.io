@@ -1,3 +1,125 @@
+---
+---
+
+/*
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ */
+
+@import
+    "vendor/breakpoint/breakpoint",
+
+    "themes",
+    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
+    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+
+    "include/mixins",
+    "vendor/susy/susy",
+
+    "layout/reset",
+    "layout/base",
+
+    "include/utilities",
+    "layout/tables",
+    "layout/buttons",
+    "layout/notices",
+    "layout/masthead",
+    "layout/navigation",
+    "layout/footer",
+    "syntax",
+
+    "layout/forms",
+
+    "layout/page",
+    "layout/archive",
+    "layout/sidebar",
+    "layout/json_cv",
+
+    "vendor/font-awesome/fontawesome",
+    "vendor/font-awesome/solid",
+    "vendor/font-awesome/brands";
+
+/* ========================================================= */
+/* === Custom Overrides for Marjory Pineda personal site === */
+/* ========================================================= */
+
+/* 1️⃣ Force fully white background on all layout layers */
+html,
+body,
+.site,
+.page,
+.page__inner-wrap,
+.page__content,
+.page__footer,
+.wrapper,
+.main,
+.layout__default,
+.site__content,
+.sidebar,
+.masthead,
+header,
+footer,
+section,
+article,
+aside {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Ensure text contrast against white background */
+body {
+  color: #222222 !important;
+}
+
+/* 2️⃣ Apply clean modern font (Avenir Next stack) */
+body,
+h1, h2, h3, h4, h5, h6,
+a,
+p,
+li,
+blockquote,
+.sidebar,
+.masthead,
+.page__content,
+footer {
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  color: #222 !important;
+  line-height: 1.6;
+}
+
+/* 3️⃣ Circular profile image */
+.author__avatar img {
+  border-radius: 50% !important;
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* 4️⃣ Left-align sidebar content */
+.sidebar {
+  text-align: left !important;
+}
+
+/* 5️⃣ Slightly widen content area for a balanced layout */
+@media (min-width: 1200px) {
+  .page__content {
+    max-width: 850px;
+  }
+}
+
+/* 6️⃣ Optional: subtle separation between sidebar and main content */
+@media (min-width: 1000px) {
+  .sidebar {
+    border-right: 1px solid #eee;
+  }
+  .page__content {
+    padding-left: 2rem;
+  }
+}
+
 /* ========================================================= */
 /* === Accent Styling for Navigation and Links (Orange) ==== */
 /* ========================================================= */
@@ -5,7 +127,7 @@
 /* Accent color variable */
 $accent-color: #E87722;
 
-/* 1️⃣ Navbar active/hover link styling */
+/* 1️⃣ Navbar link styling */
 .masthead__menu-item a {
   position: relative;
   padding-bottom: 4px;
@@ -14,7 +136,7 @@ $accent-color: #E87722;
   transition: all 0.2s ease-in-out;
 }
 
-/* Highlight orange underline when active */
+/* Active or hover state */
 .masthead__menu-item--active a,
 .masthead__menu-item a:hover {
   color: $accent-color !important;
@@ -53,12 +175,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 3️⃣ Sidebar icons accent hover */
+/* 3️⃣ Sidebar links hover */
 .sidebar a:hover {
   color: $accent-color !important;
 }
 
-/* 4️⃣ Accent bullet points or small highlights */
+/* 4️⃣ Accent bullet points */
 ul li::marker {
   color: $accent-color;
 }
@@ -66,4 +188,24 @@ ul li::marker {
 /* 5️⃣ Optional: orange border under masthead for visual separation */
 .masthead {
   border-bottom: 3px solid $accent-color;
+}
+
+/* 6️⃣ Accent buttons */
+.btn, button, .button {
+  background-color: $accent-color !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: darken($accent-color, 8%) !important;
+}
+
+/* 7️⃣ Optional: header accent line for section titles */
+h2, h3 {
+  border-left: 4px solid $accent-color;
+  padding-left: 10px;
 }
