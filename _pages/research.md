@@ -2,21 +2,11 @@
 permalink: /research/
 title: "Research"
 author_profile: true
+layout: wide
 ---
 
 <style>
 /* ==== Research Page Custom Styling ==== */
-
-/* * THIS IS THE KEY FIX:
- * By placing this rule inside the *same* media query as your
- * main.scss file, we can successfully override the 850px limit
- * *only* on this page.
-*/
-@media (min-width: 1200px) {
-  .page__content {
-    max-width: 100% !important;
-  }
-}
 
 .research-grid {
   display: flex;
