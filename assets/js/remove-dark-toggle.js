@@ -1,19 +1,29 @@
-// --- Remove the dark mode toggle button dynamically and permanently ---
+// --- Aggressively remove and disable dark-mode toggle functionality ---
 (function() {
-  // Repeatedly check every 500ms in case the theme script re-adds it
-  const removeDarkToggle = () => {
-    document.querySelectorAll(
-      ".js-toggle-dark-mode, [aria-label='toggle color scheme'], button.color-scheme-toggle"
-    ).forEach(btn => btn.remove());
+  const blockDarkToggle = () => {
+    // Remove any buttons that already exist
+    document.querySelectorAll(".js-toggle-dark-mode, [aria-label='toggle color scheme']").forEach(btn => {
+      btn.remove();
+    });
+
+    // Disable any event listeners related to dark mode
+    const scriptElements = Array.from(document.scripts);
+    scriptElements.forEach(script => {
+      if (script.src && script.src.includes('main.min.js')) {
+        // Override the function that attaches dark mode if it exists
+        window.matchMedia = () => ({ addEventListener: () => {}, removeEventListener: () => {} });
+      }
+    });
+
+    // Remove any HTML attributes that enable theme switching
+    document.documentElement.removeAttribute('data-theme');
   };
 
-  // Run immediately
-  removeDarkToggle();
-
-  // Run again every 0.5s for 5 seconds (covers delayed JS injection)
+  // Run immediately and repeatedly for 5 seconds
+  blockDarkToggle();
   let count = 0;
   const interval = setInterval(() => {
-    removeDarkToggle();
+    blockDarkToggle();
     count++;
     if (count > 10) clearInterval(interval);
   }, 500);
