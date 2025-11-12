@@ -22,6 +22,7 @@ plugins:
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
 title                    : "Marjory Pineda"
+masthead_titile          : false
 title_separator          : "-"
 name                     : &name "Marjory Pineda"
 description              : &description "I am a second-year Ph.D. student in the Human-Centered Computing Program at the University of Maryland, Baltimore County (UMBC). My research interests focus on community-engaged work, human-centered AI, and accessibility. I seek to understand and uncover the ways technology empowers or disempowers marginalized communities."   # Update this with a general description of your site, this is the default if not overridden by a page
@@ -36,12 +37,12 @@ repository               : "marjory-pineda/marjory-pineda.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/Marjory_Pineda_headshot.jpg"
+  avatar           : "/images/Marjory_Pineda_headshot.jpg"
   name             : "Marjory Pineda"
-  pronouns         : "she/her" # example: "she/her"  
-  bio              : "Ph.D. Student, Human-Centered Computing"
+  pronouns         : # "she/her" # example: "she/her"  
+  bio              : "Ph.D. Student, Human-Centered Computing, Department of Information Systems"
   location         : "Hyattsville, MD" 
-  employer         : "University of Maryland, Baltimore County (UMBC)"
+  employer         : "UMBC"
   uri              : # URL
   email            : "mpineda1@umbc.edu" 
 
