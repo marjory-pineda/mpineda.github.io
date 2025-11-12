@@ -4,14 +4,17 @@ title: "Research"
 author_profile: true
 ---
 
-/* Override global container width just for Research page */
-.page__content {
-  max-width: 1200px !important;
-}
-
-
 <style>
 /* ==== Research Page Custom Styling ==== */
+
+/* * THIS IS THE NEW RULE THAT FIXES THE WIDTH
+ * It finds the theme's main content area and removes the
+ * width limit, allowing it to fill the space.
+*/
+.page__content {
+  max-width: 100% !important;
+}
+
 .research-grid {
   display: flex;
   justify-content: space-between;
@@ -27,10 +30,8 @@ author_profile: true
   border: 1px solid #ddd;
   border-radius: 12px;
   
-  /* === THIS IS THE FIX === */
-  /* We remove the complex calc() and max-width */
-  /* 'flex: 1;' tells all cards to grow equally to fill the space */
-  flex: 1;
+  /* This tells all cards to grow equally to fill the space */
+  flex: 1; 
   
   padding: 22px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -107,21 +108,21 @@ author_profile: true
   background-color: #cf6b1e;
 }
 
-/* Responsive behavior - These rules will correctly override the 'flex: 1;' */
+/* Responsive behavior */
 @media (max-width: 1250px) {
   .research-grid {
     flex-wrap: wrap;
     justify-content: center;
   }
   .research-card {
-    flex: 1 1 45%; /* This overrides 'flex: 1' */
+    flex: 1 1 45%;
     max-width: 45%;
   }
 }
 
 @media (max-width: 800px) {
   .research-card {
-    flex: 1 1 100%; /* This overrides 'flex: 1' */
+    flex: 1 1 100%;
     max-width: 100%;
   }
 }
