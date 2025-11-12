@@ -121,7 +121,7 @@ footer {
 }
 
 /* ========================================================= */
-/* === Accent Styling for Navigation and Links (Orange) ==== */
+/* === Accent Styling for Navigation and Headings (Orange) == */
 /* ========================================================= */
 
 /* Accent color variable */
@@ -166,18 +166,22 @@ $accent-color: #E87722;
   background-color: transparent;
 }
 
-/* 2️⃣ Accent color for links and hover */
+/* 2️⃣ Standard link color reverted to neutral */
 a {
-  color: $accent-color !important;
+  color: #1a1a1a !important;
+  text-decoration: underline;
 }
 a:hover {
-  color: darken($accent-color, 10%) !important;
+  color: #000 !important;
   text-decoration: underline;
 }
 
-/* 3️⃣ Sidebar links hover */
+/* 3️⃣ Sidebar links hover (keep subtle color shift only) */
+.sidebar a {
+  color: #1a1a1a !important;
+}
 .sidebar a:hover {
-  color: $accent-color !important;
+  color: #000 !important;
 }
 
 /* 4️⃣ Accent bullet points */
@@ -185,7 +189,7 @@ ul li::marker {
   color: $accent-color;
 }
 
-/* 5️⃣ Optional: orange border under masthead for visual separation */
+/* 5️⃣ Orange border under masthead for separation */
 .masthead {
   border-bottom: 3px solid $accent-color;
 }
@@ -204,7 +208,7 @@ ul li::marker {
   background-color: darken($accent-color, 8%) !important;
 }
 
-/* 7️⃣ Optional: header accent line for section titles */
+/* 7️⃣ Orange accent line for section titles */
 h2, h3 {
   border-left: 4px solid $accent-color;
   padding-left: 10px;
