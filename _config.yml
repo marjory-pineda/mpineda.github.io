@@ -26,7 +26,7 @@ author:
   avatar           : "images/Marjory_Pineda_headshot.jpg"
   name             : "Marjory Pineda"
   pronouns         : "she/her" # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "Ph.D. Student, Human-Centered Computing"
   location         : "Hyattsville, MD" 
   employer         : "University of Maryland, Baltimore County (UMBC)"
   uri              : # URL
@@ -63,7 +63,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://www.linkedin.com/in/marjory-pineda-b99b9b219/"
+  linkedin         : "marjory-pineda-b99b9b219/"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
