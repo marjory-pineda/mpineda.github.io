@@ -144,7 +144,7 @@ classes: wide
     <img src="/assembly_line_project.jpeg" alt="assembly line work setting">
     <h3>Investigating the Work Practices of Assembly Line Workers with Visual Impairments</h3>
     <p>Studying experiences and challenges of assembly line garment workers, along with strategies and workarounds developed to support workflow and independence.</p>
-    <a href="#" class="button">Read More</a>
+    <a href="/assembly-line-project/" class="button">Read More</a>
   </div>
 
 </div>
