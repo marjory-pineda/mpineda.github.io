@@ -37,7 +37,7 @@ repository               : "marjory-pineda/marjory-pineda.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/Marjory_Pineda_headshot.jpg"
+  avatar           : "Marjory_Pineda_headshot.jpg"
   name             : "Marjory Pineda"
   pronouns         : # "she/her" # example: "she/her"  
   bio              : "Ph.D. Student, Human-Centered Computing, Department of Information Systems"
