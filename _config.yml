@@ -6,6 +6,8 @@
 # `jekyll serve -l -H localhost`. If you change this file, please restart the 
 # server process.
 
+# rebuild after leaving fork network
+
 # Theme setup
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
