@@ -45,18 +45,35 @@
 /* === Custom Overrides for Marjory Pineda personal site === */
 /* ========================================================= */
 
-/* 1️⃣ Force background to be pure white everywhere */
+/* 1️⃣ Force pure white background across all major elements */
 html,
 body,
 .page,
 .page__content,
+.page__inner-wrap,
 .page__footer,
 .masthead,
-.sidebar {
+.site,
+.site__content,
+.sidebar,
+.layout__default {
   background-color: #ffffff !important;
 }
 
-/* 2️⃣ Circular profile image */
+/* 2️⃣ Use clean modern typography (Avenir Next stack) */
+body,
+h1, h2, h3, h4, h5, h6,
+a,
+p,
+li,
+.sidebar,
+.masthead,
+.page__content {
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  color: #222 !important; /* optional: darker text for contrast */
+}
+
+/* 3️⃣ Circular profile image */
 .author__avatar img {
   border-radius: 50% !important;
   width: 180px !important;
@@ -65,14 +82,14 @@ body,
   display: block;
 }
 
-/* 3️⃣ Keep sidebar left-aligned (default layout) */
+/* 4️⃣ Keep sidebar left-aligned */
 .sidebar {
   text-align: left !important;
 }
 
-/* 4️⃣ Optional: Slightly reduce sidebar width for balance */
+/* 5️⃣ Optional: widen main content slightly for balance */
 @media (min-width: 1200px) {
-  .sidebar {
-    max-width: 260px;
+  .page__content {
+    max-width: 850px;
   }
 }
